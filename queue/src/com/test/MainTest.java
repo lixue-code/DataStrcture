@@ -22,6 +22,7 @@ public class MainTest {
 
     }
 
+    //循环队列测试
     @Test
     public void circleQueueTest(){
         CircleArrayQueue circleArrayQueue = new CircleArrayQueue(4);

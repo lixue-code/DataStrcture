@@ -69,4 +69,6 @@ public class CircleArrayQueue {
         return (rear+maxSize-front) % maxSize;
     }
 
+    //循环队列
+
 }
