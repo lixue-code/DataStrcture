@@ -9,6 +9,8 @@ public class MainTest {
         arrayQueue.addData(20);
         arrayQueue.addData(30);
 
+        System.out.println("sss");
+
         arrayQueue.showQueue();
 
         int data = arrayQueue.getData();
