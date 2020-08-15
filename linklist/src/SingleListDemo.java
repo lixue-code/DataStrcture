@@ -25,6 +25,8 @@ public class SingleListDemo {
         private Node head = new Node();
 
         //添加节点
+        //1.找到最后一个节点(指针域为空说明为最后节点)
+        //2.最后节点的指针域指向新节点
         public void addNode(Node node){
             //辅助节点
             Node temp = head;
@@ -43,6 +45,8 @@ public class SingleListDemo {
 
 
         //显示链表
+        //1.判断是否为空
+        //2.遍历
         public void showLinkList(){
             //判断是否为空
           if(head.next==null){
