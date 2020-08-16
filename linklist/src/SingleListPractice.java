@@ -3,6 +3,9 @@ import org.junit.Test;
 public class SingleListPractice {
 
 
+
+
+
     @Test
     public void test(){
         Node node = new Node("1",1);
@@ -203,6 +206,36 @@ public class SingleListPractice {
 
         }
 
+
+
+
+        /*
+            反转单链表
+            未完成
+        */
+        public   void reverseLinkList(Node head){
+            //判断原来的链表是否为空或者只有一个节点时不用反转
+            if(head.next==null || head.next.next==null){
+                return;
+            }
+            //辅助指针，遍历链表
+            Node temp = head;
+            //创建一个新的链表头结点，用于保存反转后的链表
+            Node reverseHead = new Node(null,0);
+            //创建一个next节点，用于保存当前节点的下一个节点
+            Node nextNode = null;
+
+            while (temp!=null){
+                //首先保存当前节点的下一个节点，防止链表断裂
+                nextNode = temp.next;
+                temp.next = reverseHead.next;
+                temp = nextNode;
+            }
+            //将原来的头结点指向新链表的前端
+            head.next = reverseHead.next;
+
+        }
+
     }
 
 
@@ -260,6 +293,9 @@ public class SingleListPractice {
         //此时temp就是倒数第k个节点
         return temp;
     }
+
+
+
 
 
 
