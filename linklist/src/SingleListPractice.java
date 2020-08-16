@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.Stack;
+
 public class SingleListPractice {
 
 
@@ -18,14 +20,20 @@ public class SingleListPractice {
         singleLinkList.addNodeByOrde(node1);
         singleLinkList.addNodeByOrde(node3);
         singleLinkList.addNodeByOrde(node2);
+        System.out.println("原先的链表");
+        singleLinkList.showLinkList();
+
+//        System.out.println("逆序链表");
+//        //测试逆序打印单链表，单链表+栈
+//        showLinkListByReverse(singleLinkList.getHead());
 
 
 //        int length = getLength(singleLinkList.getHead());
 //        System.out.println("节点个数:"+length);
-        Node lastIndexNode = getLastIndexNode(singleLinkList.getHead(),2);
-        System.out.println("倒数节点："+lastIndexNode);
-
-        singleLinkList.showLinkList();
+//        Node lastIndexNode = getLastIndexNode(singleLinkList.getHead(),2);
+//        System.out.println("倒数节点："+lastIndexNode);
+//
+//        singleLinkList.showLinkList();
 
 //        Node node4 = new Node("2号修改测试",2);
 //
@@ -295,6 +303,33 @@ public class SingleListPractice {
     }
 
 
+    /*
+        逆序打印单链表
+        单链表+栈实现  （优点是不改变栈的结构）
+     */
+    public static void showLinkListByReverse(Node head){
+        //判空
+        if(head.next==null){
+            System.out.println("");
+            return;
+        }
+        //创建栈，将链表的各个节点加入到栈中
+        Stack<Node> stack = new Stack<>();
+        Node temp = head.next;
+        //遍历单链表
+        while (temp!=null){
+            //压栈
+            stack.push(temp);
+            temp = temp.next;
+        }
+        //将栈中的节点进行打印
+        //栈的特点时先进后出
+        while (stack.size()>0){
+            Node pop = stack.pop();
+            System.out.println(pop);
+        }
+
+    }
 
 
 
