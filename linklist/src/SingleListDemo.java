@@ -45,6 +45,9 @@ public class SingleListDemo {
          （2）删除：temp.next = temp.next.next
     5、更新：找到需要跟新位置的节点 temp
         （1）更新：修改temp的数据域为新节点的数据域
+
+    6、遍历：通过while死循环，满足某个条件时说明找到的节点，退出循环
+            当不满足条件时，通过 temp = temp.next 指针后移，指导找到节点或者遍历到最后节点
      */
     class SingleLinkList{
 
