@@ -148,6 +148,7 @@ public class SingleListDemo {
 
         public void deleteNodeByNo(int no){
             //判断链表是否为空
+            //双向链表
             if(head.next==null){
                 return;
             }
