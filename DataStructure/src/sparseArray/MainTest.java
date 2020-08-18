@@ -1,6 +1,7 @@
 package sparseArray;
 
 import org.junit.Test;
+import utils.SparseArrayUtils;
 
 public class MainTest {
     @Test
@@ -46,9 +47,22 @@ public class MainTest {
             }
         }
 
+        //将稀疏数组写到文件中
+        String path = "D:\\sparseArray\\spraseArray.txt";
+//        SparseArrayUtils.writeToTxt(sparseArray,path);
+
+        int[][] sparseArray2 = SparseArrayUtils.readFormTxt(path);
+        System.out.println("文件中读取的稀疏数组:");
+
+        for (int[] ints : sparseArray2) {
+            for (int anInt : ints) {
+                System.out.print(anInt+"\t");
+            }
+            System.out.println();
+        }
 
         //输出稀疏数组
-        System.out.println("稀疏数组");
+        System.out.println("稀疏数组:");
         for (int[] ints : sparseArray) {
             for (int anInt : ints) {
                 System.out.print(anInt+"\t");
