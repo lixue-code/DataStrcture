@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.Stack;
+
 public class MySingleLinkList {
 
 
@@ -19,11 +21,17 @@ public class MySingleLinkList {
         singleLinkList.addNodeByOrder(node);
         singleLinkList.addNodeByOrder(node2);
         singleLinkList.addNodeByOrder(node1);
-        singleLinkList.showLinkList();
+        singleLinkList.showLinkList(singleLinkList.getHead());
 
-        int index = 3;
-        Node lastIndexNode = singleLinkList.getLastIndexNode(singleLinkList.getHead(),index);
-        System.out.println("倒数第"+index+"节点是:"+lastIndexNode);
+        singleLinkList.reserverLinkListByStack(singleLinkList.getHead());
+
+//        Node reservseHead = singleLinkList.reservseLinkList(singleLinkList.getHead());
+//
+//        System.out.println("反转后：");
+//        singleLinkList.showLinkList(reservseHead);
+//        int index = 3;
+//        Node lastIndexNode = singleLinkList.getLastIndexNode(singleLinkList.getHead(),index);
+//        System.out.println("倒数第"+index+"节点是:"+lastIndexNode);
 
 
 //        System.out.println("链表长度："+singleLinkList.getLinkListlength());
@@ -210,7 +218,64 @@ public class MySingleLinkList {
         }
 
 
-        public void showLinkList(){
+        //反转单链表输出
+        public Node reservseLinkList(Node head){
+            //判断链表是否为空
+            if(head.next==null){
+               return  head;
+            }
+            //temp 指向当前节点
+            Node temp = head.next;
+            //next 保存当前节点的下一个节点
+            Node next = null;
+            //创建一个新的单链表
+            Node reservseHead = new Node(null,0);
+
+            //遍历原来的单链表
+            while (temp!=null){
+                //先保存当前节点的下一个节点
+                next = temp.next;
+                //修改当前节点的next域
+                temp.next = reservseHead.next;
+                //修改新表头的next域指向当前遍历出来的节点
+                reservseHead.next = temp;
+                //指向当前节点的指针后移
+                temp = next;
+            }
+
+            //返回新链表的头结点
+            return  reservseHead;
+
+        }
+
+
+        //链表的反转  单链表 + 栈
+        public void reserverLinkListByStack(Node head){
+            //原来的链表为空或者只有一个节点时不用反转
+            if(head.next==null || head.next.next==null){
+                return;
+            }
+            //辅助变量，指向当前节点
+             Node cur = head.next;
+            //创建一个栈，用于保存当前元素
+            Stack<Node> stack = new Stack<>();
+            while (cur!=null){
+                //将当前节点压栈
+                stack.push(cur);
+                //指针后移
+                cur = cur.next;
+            }
+
+            System.out.println("反转后（栈）：");
+            //弹栈
+            while (!stack.isEmpty()){
+                Node pop = stack.pop();
+                System.out.println(pop);
+            }
+
+        }
+
+        public void showLinkList(Node head){
             //判断链表是否为空
             if(head.next==null){
                 return;
